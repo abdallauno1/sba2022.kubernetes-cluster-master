@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sbapod
+spec:
+  containers:
+    - name: sbacontainer
+      image: abdallauno1/mysba:latest
+      ports:
+      - containerPort: 8080
