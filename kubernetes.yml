@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
     - name: sbacontainer
-      image: abdallauno1/mysba:latest
+      image: abdallauno1/mysba
       ports:
-      - containerPort: 8080
+      - containerPort: 9595

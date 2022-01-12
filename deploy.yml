@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sba-site
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sba-site
+  template:
+    metadata:
+      labels:
+        app: sba-site
+    spec:
+      containers:
+      - name: sba-site
+        image: abdallauno1/mysba
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sba-service
+  namespace: sba-site
+spec:
+  selector:
+    app: sba-site
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 31000
+  type: NodePort
+        
