@@ -1,6 +1,9 @@
-FROM python:3.7
+FROM python:alpine3.10
+WORKDIR /app 
 COPY . /app
-WORKDIR /app
-RUN pip freeze > requirements.txt
 RUN pip install -r requirements.txt
-CMD python web.py
+EXPOSE 5000
+CMD [ "python", "./web.py" ]
+
+#COPY requirements.txt /app/requirements.txt
+#ENTRYPOINT ["python", "./web.py"]
